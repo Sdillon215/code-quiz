@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-self: flex-end;
+}
+
+header a, header h1 {
+    font-size: 20px;
+    font-style: none;
+    padding: 5px;
+    margin: 0;
+}
