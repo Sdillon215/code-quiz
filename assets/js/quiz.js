@@ -1,5 +1,5 @@
 var startBtnEl = document.getElementById("start-btn");
-var timeLeft = document.getElementById("time-left").innerText = 60;
+var timeLeft = document.getElementById("time-left").innerText = 10;
 
 
 
@@ -8,14 +8,20 @@ var timeLeft = document.getElementById("time-left").innerText = 60;
 var startHide = function (event) {
     document.getElementById("start-hide").style.display = "none";
 
-    // Timer function called by startHide function on start click to start the timer for the quiz
-    var quizTime = setInterval(function() {
-        if(timeLeft <= 0) {
+    // Timer function initialized on click of start btn
+    var quizTime = setInterval(function () {
+        if (timeLeft <= 0) {
             clearInterval(quizTime);
         }
         document.getElementById("time-left").innerText = timeLeft;
         timeLeft--;
     }, 1000);
+    questions();
+};
+
+// questions function
+var questions = function () {
+    console.log("questions bruh");
 };
 
 startBtnEl.addEventListener("click", startHide);
