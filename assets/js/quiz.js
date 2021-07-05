@@ -1,5 +1,5 @@
 var startBtnEl = document.getElementById("start-btn");
-var timeLeft = document.getElementById("time-left").innerText = 10;
+var timeLeft = document.getElementById("time-left").innerText = 60;
 
 
 
@@ -21,7 +21,12 @@ var startHide = function (event) {
 
 // questions function
 var questions = function () {
-    console.log("questions bruh");
+    document.getElementById("1").style.visibility = "hidden";
+
+    if (startBtnEl) {
+        document.getElementById("1").style.visibility = "visible";
+    }
 };
 
 startBtnEl.addEventListener("click", startHide);
+questions();

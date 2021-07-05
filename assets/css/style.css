@@ -1,3 +1,8 @@
+html {
+    background: linear-gradient(to bottom right, #a6faf9 0%, #0e6e84 15%, #105168 30%, #932dd3 80%, #59009c 100%) no-repeat center center fixed;
+    background-size: cover;
+}
+
 header {
     display: flex;
     width: 100%;
@@ -7,11 +12,34 @@ header {
 
 header a, header h1 {
     font-size: 20px;
-    font-style: none;
+    text-decoration: none;
+    color: black;
     padding: 5px;
     margin: 0;
+    border: solid 2px black;
+    border-radius: 15px;
 }
 
 #start-hide {
     text-align: center;
+}
+
+.card {
+    background: linear-gradient(to bottom right, #a6faf9 0%, #0e6e84 15%, #105168 30%, #932dd3 80%, #59009c 100%) no-repeat;
+    width: 80%;
+    margin: 50px auto;
+    border: solid 2px black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.btn {
+    background-color: #932dd3;
+    border-radius: 15px;
+    border: solid 1px black;
+    padding: 5px;
+    margin: 5px auto;
+    width: 80%;
 }
