@@ -15,12 +15,16 @@ var startHide = function (event) {
 
     // Timer function initialized on click of start btn
     var quizTime = setInterval(function () {
+        if (timeLeft === 0) {
+            endQuiz();
+        }
         if (timeLeft <= 0) {
             clearInterval(quizTime);
         }
         document.getElementById("time-left").innerText = timeLeft;
         timeLeft--;
     }, 1000);
+    
     questionOne();
 };
 
@@ -47,6 +51,7 @@ var questionThree = function() {
 }
 
 var endQuiz = function() {
+    hideAll();
     document.getElementById("3").style.display = "none";
     document.getElementById("end").style.display = "flex";
     document.getElementById("score").innerText = points;
@@ -60,7 +65,6 @@ oneBtnEl.forEach(element => {
         } else {
             timeLeft = timeLeft - 5;
         }
-        console.log(points);
         questionTwo();
     });
 });
