@@ -43,3 +43,14 @@ header a, header h1 {
     margin: 5px auto;
     width: 80%;
 }
+
+#text-input {
+    width: 15%;
+    margin: 5px auto;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#save-int {
+    width: 15%;
+}

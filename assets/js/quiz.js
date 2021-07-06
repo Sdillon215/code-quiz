@@ -5,6 +5,8 @@ var right = document.getElementById("right");
 var oneBtnEl = document.querySelectorAll(".answer-one");
 var twoBtnEl = document.querySelectorAll(".answer-two");
 var threeBtnEl = document.querySelectorAll(".answer-three");
+var intBtnEl = document.getElementById("save-int");
+var scoreArr = [];
 
 
 
@@ -24,7 +26,7 @@ var startHide = function (event) {
         document.getElementById("time-left").innerText = timeLeft;
         timeLeft--;
     }, 1000);
-    
+
     questionOne();
 };
 
@@ -35,31 +37,46 @@ var hideAll = function () {
     document.getElementById("end").style.display = "none";
 }
 
-var questionOne = function() {
+var questionOne = function () {
     document.getElementById("1").style.display = "flex";
-    
+
 }
 
-var questionTwo = function() {
+var questionTwo = function () {
     document.getElementById("1").style.display = "none";
     document.getElementById("2").style.display = "flex";
 }
 
-var questionThree = function() {
+var questionThree = function () {
     document.getElementById("2").style.display = "none";
     document.getElementById("3").style.display = "flex";
 }
 
-var endQuiz = function() {
+var endQuiz = function () {
     hideAll();
     document.getElementById("3").style.display = "none";
     document.getElementById("end").style.display = "flex";
     document.getElementById("score").innerText = points;
 }
 
+var saveInt = function () {
+    
+    var int = document.getElementById("text-input").value;
+    scoreArr.push(int + " " + points);
+    localStorage.setItem("scoreArr", JSON.stringify(scoreArr));
+    highScore();
+}
+
+var highScore = function() {
+    var savedHighScore = localStorage.getItem("scoreArr");
+    savedHighScore = JSON.parse(savedHighScore);
+    document.getElementById("all-scores").innerText = savedHighScore;
+}
+
+intBtnEl.addEventListener("click", saveInt);
 startBtnEl.addEventListener("click", startHide);
 oneBtnEl.forEach(element => {
-    element.addEventListener("click", (e) =>{
+    element.addEventListener("click", (e) => {
         if (element.id === "right") {
             points = points + 5;
         } else {
@@ -68,8 +85,9 @@ oneBtnEl.forEach(element => {
         questionTwo();
     });
 });
+
 twoBtnEl.forEach(element => {
-    element.addEventListener("click", (e) =>{
+    element.addEventListener("click", (e) => {
         if (element.id === "right") {
             points = points + 5;
         } else {
@@ -78,8 +96,9 @@ twoBtnEl.forEach(element => {
         questionThree();
     });
 });
+
 threeBtnEl.forEach(element => {
-    element.addEventListener("click", (e) =>{
+    element.addEventListener("click", (e) => {
         if (element.id === "right") {
             points = points + 5;
         } else {
@@ -88,4 +107,6 @@ threeBtnEl.forEach(element => {
         endQuiz();
     });
 });
+
 hideAll();
+highScore();

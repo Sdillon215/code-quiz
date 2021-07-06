@@ -11,7 +11,7 @@
 
 <body>
     <header class="header">
-        <a href="#">View High Scores!</a>
+        <a href="#high-scores">View High Scores!</a>
         <h1>Time: <span id="time-left"></span></h1>
     </header>
     <main>
@@ -53,7 +53,15 @@
         <section class="card" id="end">
             <h2>Quiz Over!</h2>
             <p>Your Score: <span id="score"></span>/15</p>
+            <input type="text" name="task-name" id="text-input" placeholder="Enter Your Initials" />
+            <button type="submit" class="btn" id="save-int">Save</button>
+        </section>
 
+        <section class="card" id="high-scores">
+            <h3>High Scores</h3>
+            <div class="card" id="all-scores">
+
+            </div>
         </section>
     </main>
     <script src="assets/js/quiz.js"></script>
